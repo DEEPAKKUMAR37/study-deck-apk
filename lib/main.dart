@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'student_registration_screen.dart';
 import 'splash_screen.dart'; // Import splash screen
 import 'login_screen.dart';
+import 'reset_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Study Cloud',
         debugShowCheckedModeBanner: false,
-        home: StudentRegistrationScreen()//LoginScreen(),//const SplashScreen(), // Start with splash screen
+        home: ResetPassword(),//LoginScreen(),//StudentRegistrationScreen(),//const SplashScreen(), // Start with splash screen
       /*routes: {
         '/home': (context) => MyHomePage(),
         '/SplashScreen': (context) => SplashScreen(),

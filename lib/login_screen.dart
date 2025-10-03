@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
         children: [
           // Background Image
           Image.asset(
-            "assets/Images/background.jpg",
+            "assets/images/background.jpg",
             fit: BoxFit.cover,
           ),
           Positioned(
@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
             child: SizedBox(
               width: 60,
               height: 60,
-              child: Image.asset("assets/Images/logo.png"),
+              child: Image.asset("assets/images/logo.png"),
             ),
           ),
 
@@ -97,7 +97,7 @@ class LoginScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 25, vertical: 12),
                           ),
-                          child: const Text("Login",
+                          child: const Text("Registration",
                             style: TextStyle(
                               color: Colors.white,
                             ),
@@ -113,7 +113,7 @@ class LoginScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 25, vertical: 12),
                           ),
-                          child: const Text("Registration",
+                          child: const Text("Login",
                             style: TextStyle(
                                 color: Colors.white
                             ),

@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: const DecorationImage(
-            image: AssetImage('assets/Images/background.jpg'),
+            image: AssetImage('assets/images/background.jpg'),
             fit: BoxFit.cover,
           ),
           // 🔥 Add a semi-transparent color overlay
@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/Images/logo.png',
+                'assets/images/logo.png',
                 width: 120,
                 height: 120,
               ),

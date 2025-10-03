@@ -9,7 +9,7 @@ class StudentRegistrationScreen extends StatelessWidget {
         body: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset('assets/Images/background.jpg',
+            Image.asset('assets/images/background.jpg',
               fit: BoxFit.cover,
             ),
             Container(
@@ -19,7 +19,7 @@ class StudentRegistrationScreen extends StatelessWidget {
               top: 50,
               right: 20,
               child: Container(
-                child: Image.asset('assets/Images/logo.png',
+                child: Image.asset('assets/images/logo.png',
                   height: 60,
                   width: 60,
                 ),
@@ -31,7 +31,7 @@ class StudentRegistrationScreen extends StatelessWidget {
                 height: 530,
                 width: 330,
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
+                    color: Colors.white.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(20)
                 ),
                 child: Column(
@@ -71,18 +71,7 @@ class StudentRegistrationScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0,right: 15.0,top: 15.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            labelText: "Branch*",
-                            hintText: "Enter Your Branch",
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12)
-                            )
-                        ),
-                      ),
-                    ),
+
                     Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: TextField(
@@ -115,9 +104,23 @@ class StudentRegistrationScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.teal
                         ),
-                        child: Text("Registration",
+                        child: Text("Register",
                           style: TextStyle(color: Colors.white),
                         )
+                    ),
+                    SizedBox(height: 30,),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/login'); // login screen pe le jaega
+                      },
+                      child: Text(
+                        "Already have an account? Login",
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 15
+                          //decoration: TextDecoration.underline,
+                        ),
+                      ),
                     )
                   ],
                 ),
