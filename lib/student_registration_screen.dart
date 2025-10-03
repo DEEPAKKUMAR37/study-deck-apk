@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 class StudentRegistrationScreen extends StatelessWidget {
   const StudentRegistrationScreen({super.key});
 
@@ -54,7 +56,8 @@ class StudentRegistrationScreen extends StatelessWidget {
                             labelText: "S'Name*",
                             hintText: "Enter Student Name",
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12)
+                                borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(color: Colors.teal)
                             )
                         ),
                       ),
@@ -66,7 +69,8 @@ class StudentRegistrationScreen extends StatelessWidget {
                             labelText: "SID*",
                             hintText: "Enter Student ID",
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12)
+                                borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(color: Colors.teal)
                             )
                         ),
                       ),
@@ -147,7 +151,6 @@ class StudentRegistrationScreen extends StatelessWidget {
                   ),
                 )
             ),
-
           ],
         )
     );
