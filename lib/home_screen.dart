@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,22 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                // Profile Section
                 const CircleAvatar(
                   radius: 40,
-                  /*backgroundColor: Colors.white54,
-                  child: Text(
-                    "K",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF315B64),
-                    ),
-                  ),*/
                   backgroundImage: AssetImage('assets/images/logo.png'),
                 ),
                 const SizedBox(height: 10),
-                Text(
+                const Text(
                   "Deepak",
                   style: TextStyle(
                     fontSize: 18,
@@ -48,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.white,
                   ),
                 ),
-                Text(
+                const Text(
                   "22EBKCS037",
                   style: TextStyle(
                     fontSize: 14,
@@ -56,8 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 30),
-
-                // Menu Items
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.all(8),
@@ -70,60 +59,28 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.pop(context);
                         },
                       ),
-                      buildMenuItem(
-                        icon: Icons.calendar_today,
-                        text: "Calendar",
-                        onTap: () {},
-                      ),
-                      buildMenuItem(
-                        icon: Icons.folder,
-                        text: "Resources",
-                        onTap: () {},
-                      ),
-                      buildMenuItem(
-                        icon: Icons.date_range,
-                        text: "Timetables",
-                        onTap: () {},
-                      ),
-                      buildMenuItem(
-                        icon: Icons.calculate,
-                        text: "CGPA Calculator",
-                        onTap: () {},
-                      ),
-                      buildMenuItem(
-                        icon: Icons.school,
-                        text: "Placement &Training Unit",
-                        onTap: () {},
-                      ),
-                      buildMenuItem(
-                        icon: Icons.group,
-                        text: "Developers",
-                        onTap: () {},
-                      ),
+                      buildMenuItem(icon: Icons.calendar_today, text: "Calendar"),
+                      buildMenuItem(icon: Icons.folder, text: "Resources"),
+                      buildMenuItem(icon: Icons.date_range, text: "Timetables"),
+                      buildMenuItem(icon: Icons.calculate, text: "CGPA Calculator"),
+                      buildMenuItem(icon: Icons.school, text: "Placement & Training Unit"),
+                      buildMenuItem(icon: Icons.group, text: "Developers"),
                     ],
                   ),
                 ),
-
-                // Bottom Section
                 Padding(
-                  padding: const EdgeInsets.only(left: 230.0,bottom: 20),
+                  padding: const EdgeInsets.only(left: 230.0, bottom: 20),
                   child: Container(
                     color: Colors.red[100],
                     height: 50,
                     width: 50,
                     child: Column(
-                      children: [
+                      children: const [
                         Padding(
-                          padding: const EdgeInsets.only(top: 5.0),
-                          child: Icon(Icons.logout,
-                          color: Colors.red,
-                          ),
+                          padding: EdgeInsets.only(top: 5.0),
+                          child: Icon(Icons.logout, color: Colors.red),
                         ),
-                        Text('Logout',
-                        style: TextStyle(
-                          color: Colors.red
-                        ),
-                        )
+                        Text('Logout', style: TextStyle(color: Colors.red)),
                       ],
                     ),
                   ),
@@ -133,11 +90,123 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text("Main Screen Content Here"),
+
+      // ✅ Body Content
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ✅ Greeting
+                Text(
+                  "Hi Deepak!",
+                  style: GoogleFonts.playfairDisplay(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "22EBKCS037",
+                  style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+                ),
+                const SizedBox(height: 20),
+
+                // ✅ Upcoming
+                sectionTitle("Upcoming"),
+                Text(
+                  "Ye sem lite, agla fodenge",
+                  style: GoogleFonts.poppins(
+                    color: Colors.blue,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 20),
+
+                // ✅ What's New
+                sectionTitle("What’s New ⭐"),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    buildButton("Placement Unit",() {
+
+                    },),
+                    const SizedBox(width: 10),
+                    buildButton("CGPA Calculator",() {
+
+                    },),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+                // ✅ Services
+                sectionTitle("Services"),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    buildButton("Exam Schedule",() {
+
+                    },),
+                    const SizedBox(width: 10),
+                    buildButton("Class Schedule",() {
+
+                    },),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+                // ✅ Courses
+                sectionTitle("Courses"),
+                const SizedBox(height: 10),
+                const CourseTile(block: "BLOCK A04", subject: "C Programming", teacher: "Pradeep Singh Shekhawat"),
+                const CourseTile(block: "BLOCK A04", subject: "Python Programming", teacher: "Dr. Sonam Mittal"),
+                const CourseTile(block: "BLOCK A04", subject: "DSA", teacher: "Dr. Nimish Kumar"),
+                const CourseTile(block: "BLOCK A04", subject: "DSA", teacher: "Dr. Nimish Kumar"),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
+
+  // ✅ Helper Widgets
+
+  Widget sectionTitle(String title) {
+    return Text(
+      title,
+      style: GoogleFonts.playfairDisplay(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget buildButton(String text, VoidCallback onTap) {
+    return Expanded(
+      child: InkWell(
+        onTap: onTap, // <-- click action here
+        borderRadius: BorderRadius.circular(8), // Important for ripple effect
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          decoration: BoxDecoration(
+            color: const Color(0xFFD4F6FF),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
 
   Widget buildMenuItem({
     required IconData icon,
@@ -164,6 +233,56 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         onTap: onTap,
+      ),
+    );
+  }
+}
+
+// ✅ Course Tile Widget
+class CourseTile extends StatelessWidget {
+  final String block;
+  final String subject;
+  final String teacher;
+
+  const CourseTile({
+    super.key,
+    required this.block,
+    required this.subject,
+    required this.teacher,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: const Color(0xFFD4F6FF),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(block, style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey)),
+              Text(subject, style: GoogleFonts.playfairDisplay(fontSize: 16, fontWeight: FontWeight.bold)),
+              Text(teacher, style: GoogleFonts.poppins(fontSize: 12)),
+            ],
+          ),
+          InkWell(
+            child: Text(
+              "Resources",
+              style: GoogleFonts.poppins(
+                fontSize: 12,
+                color: Colors.blue,
+                decoration: TextDecoration.underline,
+               ),
+            ),
+            onTap: (){},
+          ),
+        ],
       ),
     );
   }
